@@ -1,9 +1,6 @@
 ---
+on: push
 name: Run aspell
-on:
-  push:
-    branches:
-      - dev
 jobs:
   build:
     runs-on: ubuntu-latest
