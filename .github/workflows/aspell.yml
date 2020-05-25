@@ -16,7 +16,7 @@ jobs:
             echo "------------------------------------------------------"
             cat $i | aspell --lang en --personal ./.aspell.en.pws list | tee -a typos.txt
           done
-          if [ -s typo.txt ] then;
+          if [ -s typo.txt ]; then
             echo "possible spell error(s)"
             echo "------------------------------------------------------"
             cat typos.txt
