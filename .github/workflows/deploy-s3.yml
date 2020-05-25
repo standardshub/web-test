@@ -2,7 +2,7 @@ name: deploy-jekyll
 on:
   push:
     branches:
-      - devel
+      - dev
 jobs:
   build:
     runs-on: ubuntu-latest
