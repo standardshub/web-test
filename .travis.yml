@@ -1,7 +1,15 @@
+os: linux
+dist: bionic
 language:      ruby
 rvm:
   - 2.6.5
 sudo: false
+addons:
+  apt:
+    update: true
+    packages:
+      - aspell
+      - aspell-en
 git:
   depth:       3
 node_js:
@@ -12,6 +20,19 @@ env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
 script:
+  - |
+    for i in `find . -name '*.markdown' `; do
+      echo "Checking file name: $i"
+      echo "------------------------------------------------------"
+      cat $i | aspell --lang en --personal ./.aspell.en.pws list | tee -a typos.txt
+    done
+    if [ -s typo.txt ] then;
+      echo "possible spell miss"
+      echo "------------------------------------------------------"
+      cat typos.txt
+      echo "------------------------------------------------------"
+      exit 1
+    fi
   - bundle exec jekyll build
   - bundle exec htmlproofer --empty_alt_ignore --url-ignore "/^#$/" --report-invalid-tags --internal-domains jekyll-aws.s3-website-ap-northeast-1.amazonaws.com --report-missing-names --report-script-embeds --report-missing-doctype --check-html --assume-extension --log-level debug ./_site
 cache:
