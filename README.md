@@ -61,3 +61,11 @@ Configuration file: /usr/home/trombik/github/trombik/jekyll-site-demo-stathub/_c
 ```
 
 The demo URL is [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
+
+## Spell check in CI
+
+One of GitHub Actions includes spell checking by `aspell`. The action will run
+on every push. It checks all `.markdown` files in the repository. When you
+know words `aspell` complains about are correct, add the words to
+`.aspell.en.pws`, which is a personal word list, at the root directory. The
+words will be white listed.
