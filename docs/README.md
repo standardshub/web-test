@@ -36,7 +36,7 @@ new here.
 
 A GitHub Workflow, `deploy-s3.yml`, is defined under
 [.github/workflows](https://github.com/trombik/jekyll-site-demo-starhub/blob/master/.github/workflows/deploy-s3.yml).
-This action is triggered when something is pushed (or merged) to `devel`
+This action is triggered when something is pushed (or merged) to `dev`
 branch.  When triggered, the workflow does:
 
 - checkout the branch
@@ -73,7 +73,7 @@ This repository is a demo repository. The GitHub Actions is disabled. To
 deploy your own content on _your_ S3, you need to:
 
 - fork this repository
-- create a branch `devel`
+- create a branch `dev`
 - modify the content
 - create a bucket in _your_ S3
 - configure the bucket so that it serves the files in the bucket (see
@@ -85,7 +85,7 @@ deploy your own content on _your_ S3, you need to:
   repository (see [how](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets))
 - replace the bucket name in `deploy-s3.yml` with _your_ bucket name
 - enable GitHub Actions in _your_ repository
-- push your changes to `devel` branch
+- push your changes to `dev` branch
 
-After these steps, whenever you push something to `devel` branch, the Jekyll
+After these steps, whenever you push something to `dev` branch, the Jekyll
 site is deployed to S3 automatically.
