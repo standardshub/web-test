@@ -2,6 +2,7 @@ name: deploy-jekyll
 on:
   push:
     branches:
+      # indicate the name of the branch
       - dev
 jobs:
   build:
@@ -11,8 +12,10 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
+          # set AWS access and secret access key in the repository: "secrets"
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          # set the AWS region as indicated in the bucket
           aws-region: us-west-1
       - name: Setup ruby
         uses: actions/setup-ruby@v1
@@ -25,4 +28,5 @@ jobs:
       - name: Build static site
         run: bundle exec jekyll build
       - name: Deploy static site to S3 bucket
+        # set the name of the S3 website, in this case "mywebtest"
         run: aws s3 sync ./_site/ s3://mywebtest --delete
