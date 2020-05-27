@@ -6,6 +6,7 @@ deploy, read [docs/README.md](docs/README.md).
 
 The staging site URL is
 http://starhub-demo.s3-website-ap-northeast-1.amazonaws.com/
+
 http://mywebtest.s3-website-us-west-1.amazonaws.com/
 
 ## Requirements
