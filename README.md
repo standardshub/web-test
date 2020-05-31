@@ -69,3 +69,16 @@ on every push. It checks all `.markdown` files in the repository. When you
 know words `aspell` complains about are correct, add the words to
 `.aspell.en.pws`, which is a personal word list, at the root directory. The
 words will be white listed.
+
+## Reporting bugs or requesting new features
+
+Report issues, or feature requests in `Issues`. When create an issue, you need
+to choose the type of the issue, which includes:
+
+- Bug report
+- Feature request
+- Question
+
+The repository contains a set of templates for bug report, feature request,
+etc. Please read comments in the templates and follow the instructions when
+you create one.
