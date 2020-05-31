@@ -4,10 +4,15 @@ This repository demonstrates how to deploy a static website on AWS S3. If you
 are web designer please read this README. If you would like to know how to
 deploy, read [docs/README.md](docs/README.md).
 
-The staging site URL is
-http://starhub-demo.s3-website-ap-northeast-1.amazonaws.com/
+The production site is:
+* http://mywebtestprod.s3-website-ap-northeast-1.amazonaws.com/
 
+
+The new staging site is:
 http://mywebtest.s3-website-us-west-1.amazonaws.com/
+
+> Note: The old staging site is:
+>  http://starhub-demo.s3-website-ap-northeast-1.amazonaws.com/
 
 ## Requirements
 
