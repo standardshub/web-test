@@ -1,0 +1,50 @@
+---
+name: Run htmlproofer
+on:
+  push:
+    branches:
+      - master
+      - dev
+  pull_request:
+    branches:
+      - master
+      - dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Cache bundler files
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Install ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+
+      - name: Install gems
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Build jekyll site
+        run: bundle exec jekyll build
+
+      - name: Run htmlproofer
+        run: bundle exec htmlproofer --empty_alt_ignore --url-ignore "/^#$/" --check-html --assume-extension --disable-external --log-level debug ./_site
+        # --empty_alt_ignore
+        #   If true, ignores images with empty alt attribues.
+        # --url-ignore "/^#$/"
+        #   ignore links to `#`, often used for JavaScript
+        # --assume-extension
+        #   Automatically add extension (e.g. .html) to file paths, to allow
+        #   extensionless URLs (as supported by Jekyll 3 and GitHub Pages).
+        # --disable-external
+        #   Don't run the external link checker, which can take a lot of time.
