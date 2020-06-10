@@ -1,11 +1,10 @@
 ---
-name: Deploy _site to S3 (dev)
+name: Deploy _site to S3 (prod)
 on:
-  # XXX this workflow runs only when you have created PR, not push
-  pull_request:
+  # XXX this workflow runs only when you have merged PR to `master`
+  push:
     branches:
-      # indicate the name of the branch
-      - dev
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,6 +28,7 @@ jobs:
         run: bundle install
       - name: Build static site
         run: bundle exec jekyll build
-      - name: Deploy static site to development S3 bucket
+      - name: Deploy static site to production S3 bucket
         run: |
-          aws s3 sync ./_site/ s3://mywebtest --delete
+          aws s3 sync ./_site/ s3://mywebtest-prod --delete
+
