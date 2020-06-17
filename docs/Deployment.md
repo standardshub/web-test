@@ -18,7 +18,7 @@ There are two environments for the site:
 - `production`
 
 Each environment has its own S3 bucket. `mywebtest` for `dev`, and
-`mywebtest-prod` for `production`.
+`mywebprod` for `production`.
 
 When a PR is created, and the target branch is `dev`, the GitHub Actions will
 deploy the changes in the PR to `dev` environment so that you can see changes
