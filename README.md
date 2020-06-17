@@ -5,10 +5,9 @@ are web designer please read this README. If you would like to know how to
 deploy, read [docs/README.md](docs/README.md).
 
 The production site is:
-* http://mywebtestprod.s3-website-ap-northeast-1.amazonaws.com/
+* http://mywebprod.s3-website-us-west-1.amazonaws.com
 
-
-The new staging site is:
+The development site is:
 http://mywebtest.s3-website-us-west-1.amazonaws.com/
 
 > Note: The old staging site is:
