@@ -8,7 +8,7 @@ The production site is:
 * http://mywebprod.s3-website-us-west-1.amazonaws.com
 
 The development site is:
-http://mywebtest.s3-website-us-west-1.amazonaws.com/
+* http://mywebtest.s3-website-us-west-1.amazonaws.com/
 
 > Note: The old staging site is:
 >  http://starhub-demo.s3-website-ap-northeast-1.amazonaws.com/
