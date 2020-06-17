@@ -19,4 +19,5 @@ You can find the source code for Jekyll at GitHub:
 
 
 
-New line in "dev"
+New line in "dev".
+Second new line in "dev".
