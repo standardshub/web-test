@@ -1,6 +1,7 @@
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+.github/workflows/
 node_modules
 .jekyll-cache/
 _site/
