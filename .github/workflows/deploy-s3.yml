@@ -1,8 +1,7 @@
 ---
 name: Deploy _site to S3 (dev)
 on:
-  # XXX this workflow runs only when you have created PR, not push
-  pull_request:
+  push:
     branches:
       # indicate the name of the branch
       - dev

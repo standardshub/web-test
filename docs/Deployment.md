@@ -20,11 +20,8 @@ There are two environments for the site:
 Each environment has its own S3 bucket. `mywebtest` for `dev`, and
 `mywebprod` for `production`.
 
-When a PR is created, and the target branch is `dev`, the GitHub Actions will
-deploy the changes in the PR to `dev` environment so that you can see changes
-in the PR on S3. This is intended for reviews before publishing the site to
-the production environment. Note that the change will NOT be published in
-`dev` environment until you create a PR for your branch.
+When a change is pushed to `dev` branch, the GitHub Actions will deploy the
+change to `dev` environment.
 
 When a change is pushed to `master` branch, the GitHub Actions will deploy the
 change to `production` environment. Thus, the change will be published to the
